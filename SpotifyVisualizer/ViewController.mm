@@ -19,8 +19,22 @@
 #import <Spotify/SPTDiskCache.h>
 #import "CustomSPTCoreAudioController.h"
 #import "EZAudio.h"
-@interface ViewController () <SPTAudioStreamingDelegate,CustomSPTCoreAudioControllerDelegate>
+#import "BufferManager.h"
+#ifndef CLAMP
+#define CLAMP(min,x,max) (x < min ? min : (x > max ? max : x))
+#endif
 
+typedef enum aurioTouchDisplayMode {
+    aurioTouchDisplayModeOscilloscopeWaveform,
+    aurioTouchDisplayModeOscilloscopeFFT,
+    aurioTouchDisplayModeSpectrum
+} aurioTouchDisplayMode;
+
+@interface ViewController () <SPTAudioStreamingDelegate,CustomSPTCoreAudioControllerDelegate>
+{
+    BufferManager *_bufferManager;
+    Float32 *outFFTData;
+}
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *albumLabel;
 @property (weak, nonatomic) IBOutlet UILabel *artistLabel;
@@ -46,6 +60,9 @@
     self.audioPlot.color           = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
     // Plot type
     self.audioPlot.plotType        = EZPlotTypeBuffer;
+    UInt32 maxFramesPerSlice = 4096;
+    _bufferManager = new BufferManager(maxFramesPerSlice);
+    _bufferManager->SetDisplayMode(aurioTouchDisplayModeOscilloscopeFFT);
 }
 
 - (BOOL)prefersStatusBarHidden {
@@ -227,10 +244,63 @@
 #pragma mark - CustomSPTCoreAudioControllerDelegate
 -(void)controller:(CustomSPTCoreAudioController *)controller shouldFillAudioBufferList:(AudioBufferList*)audioBufferList withNumberOfFrames:(UInt32)frames
 {
-//    NSLog(@"%s %d",__PRETTY_FUNCTION__, frames);
-    dispatch_async(dispatch_get_main_queue(),^{
-        // All the audio plot needs is the buffer data (float*) and the size. Internally the audio plot will handle all the drawing related code, history management, and freeing its own resources. Hence, one badass line of code gets you a pretty plot :)
-        [self.audioPlot updateBuffer:audioBufferList->mBuffers[0].mData withBufferSize:frames];
-    });
+    float *dataPoints =  (Float32 *)audioBufferList->mBuffers[0].mData;
+    if(_bufferManager != NULL)
+    {
+        _bufferManager->CopyAudioDataToFFTInputBuffer(dataPoints, frames);
+        //    UInt32 bufferSize = audioBufferList->mBuffers[0].mDataByteSize/sizeof(float);
+        if(_bufferManager->NeedsNewFFTData())
+        {
+            if(_bufferManager->HasNewFFTData())
+            {
+                UInt32 bufferLength = _bufferManager->GetFFTOutputBufferLength();
+                if(!outFFTData)
+                {
+                    outFFTData = (Float32*) calloc(_bufferManager->GetFFTOutputBufferLength(), sizeof(Float32));
+                }
+                _bufferManager->GetFFTOutput(outFFTData);
+                // Calculate sum of squares
+                int y, maxY;
+                maxY = _bufferManager->GetCurrentDrawBufferLength();
+                int fftLength = _bufferManager->GetFFTOutputBufferLength();
+                Float32** drawBuffers = _bufferManager->GetDrawBuffers();
+                for (y=0; y<maxY; y++)
+                {
+                    CGFloat yFract = (CGFloat)y / (CGFloat)(maxY - 1);
+                    CGFloat fftIdx = yFract * ((CGFloat)fftLength - 1);
+                    
+                    double fftIdx_i, fftIdx_f;
+                    fftIdx_f = modf(fftIdx, &fftIdx_i);
+                    
+                    CGFloat fft_l_fl, fft_r_fl;
+                    CGFloat interpVal;
+                    
+                    int lowerIndex = (int) fftIdx_i;
+                    int upperIndex = (int) fftIdx_i + 1;
+                    upperIndex = (upperIndex == fftLength) ? fftLength - 1 : upperIndex;
+                    
+                    fft_l_fl = (CGFloat)(outFFTData[lowerIndex] + 80) / 64.;
+                    fft_r_fl = (CGFloat)(outFFTData[upperIndex] + 80) / 64.;
+                    interpVal = fft_l_fl * (1. - fftIdx_f) + fft_r_fl * fftIdx_f;
+                    
+                    drawBuffers[0][y] = CLAMP(0., interpVal, 1.);
+                }
+                
+                dispatch_async(dispatch_get_main_queue(),^{
+                    // All the audio plot needs is the buffer data (float*) and the size. Internally the audio plot will handle all the drawing related code, history management, and freeing its own resources. Hence, one badass line of code gets you a pretty plot :)
+                    if(outFFTData!=NULL)
+                    {
+                        [self.audioPlot updateBuffer:drawBuffers[0] withBufferSize:frames];
+                    }
+                    else{
+                        [self.audioPlot updateBuffer:(float*)audioBufferList->mBuffers[0].mData withBufferSize:frames];
+                    }
+                    
+                    
+                });
+            }
+        }
+    }
+    
 }
 @end
