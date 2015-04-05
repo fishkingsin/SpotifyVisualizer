@@ -226,6 +226,7 @@
 				1AAC92EC1AD1248300EE84E9 /* Frameworks */,
 				1AAC92ED1AD1248300EE84E9 /* Resources */,
 				BD732AB21FC8024A61BA6AC1 /* Copy Pods Resources */,
+				1AE2E0C41AD1407B00DF8D4B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -265,6 +266,7 @@
 				TargetAttributes = {
 					1AAC92EE1AD1248300EE84E9 = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = RV8Q6T52Y9;
 					};
 					1AAC93071AD1248300EE84E9 = {
 						CreatedOnToolsVersion = 6.2;
@@ -312,6 +314,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1AE2E0C41AD1407B00DF8D4B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Auto Increment Version Script\nbuildPlist=${INFOPLIST_FILE}\nCFBundleVersion=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" $buildPlist)\nCFBundleVersion=$(($CFBundleVersion + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $CFBundleVersion\" $buildPlist\n";
+		};
 		8904509558132235D6B8FB5D /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -485,6 +500,7 @@
 			baseConfigurationReference = 78B7EE54972F8919B44B8899 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SpotifyVisualizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -496,6 +512,7 @@
 			baseConfigurationReference = 3136440C06135D67AD21DE28 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SpotifyVisualizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
