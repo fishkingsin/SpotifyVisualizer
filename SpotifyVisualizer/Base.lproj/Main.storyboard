@@ -84,7 +84,7 @@
                     <size key="freeformSize" width="350" height="700"/>
                     <connections>
                         <outlet property="statusLabel" destination="xaJ-d0-5JV" id="vqb-Zf-K6b"/>
-                        <segue destination="Jwq-k0-cZC" kind="push" identifier="ShowPlayer" id="1qt-iW-bbn"/>
+                        <segue destination="Jwq-k0-cZC" kind="showDetail" identifier="ShowPlayer" id="1qt-iW-bbn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZVf-zu-hUD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -110,7 +110,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g0X-bD-STS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1148" y="54"/>
+            <point key="canvasLocation" x="-1159" y="52"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="bMW-n9-ct7">
@@ -121,21 +121,21 @@
                         <viewControllerLayoutGuide type="bottom" id="l6j-XH-ub8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ql8-jG-yy5">
-                        <rect key="frame" x="0.0" y="0.0" width="350" height="700"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.34999999403953552" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pfl-7R-UW5" colorLabel="IBBuiltInLabel-Green">
-                                <rect key="frame" x="0.0" y="0.0" width="350" height="700"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <accessibility key="accessibilityConfiguration" label="Blurry"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IcY-NV-zZr">
-                                <rect key="frame" x="0.0" y="0.0" width="350" height="350"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="IcY-NV-zZr" secondAttribute="height" id="N9V-Om-1tS"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cQW-OQ-fYJ" customClass="EZAudioPlotGL">
-                                <rect key="frame" x="0.0" y="350" width="350" height="350"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Track Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQD-W4-XMu">
@@ -157,7 +157,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HcE-ZX-jZb">
-                                <rect key="frame" x="67" y="479" width="50" height="30"/>
+                                <rect key="frame" x="192" y="479" width="50" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="te9-Rn-Qz3"/>
                                 </constraints>
@@ -170,7 +170,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pNQ-FY-HA8">
-                                <rect key="frame" x="137" y="479" width="77" height="30"/>
+                                <rect key="frame" x="262" y="479" width="77" height="30"/>
                                 <state key="normal" title="Play/Pause">
                                     <color key="titleColor" red="0.62807674229999999" green="1" blue="0.59483990919999996" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -180,7 +180,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bU2-QL-ZwL">
-                                <rect key="frame" x="234" y="479" width="50" height="30"/>
+                                <rect key="frame" x="359" y="479" width="50" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="T6U-FG-obt"/>
                                 </constraints>
@@ -196,7 +196,7 @@
                                 <rect key="frame" x="165" y="126" width="20" height="20"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pMF-9b-bjc">
-                                <rect key="frame" x="108" y="512" width="134" height="30"/>
+                                <rect key="frame" x="233" y="512" width="134" height="30"/>
                                 <state key="normal" title="Log out from player">
                                     <color key="titleColor" red="0.46784092589999998" green="1" blue="0.44851382670000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -247,7 +247,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fyn-7B-Qoj" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-37" y="54"/>
+            <point key="canvasLocation" x="276" y="2"/>
         </scene>
     </scenes>
     <resources>
