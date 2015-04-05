@@ -9,13 +9,21 @@
 /* Begin PBXBuildFile section */
 		1AAC92F51AD1248300EE84E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC92F41AD1248300EE84E9 /* main.m */; };
 		1AAC92F81AD1248300EE84E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC92F71AD1248300EE84E9 /* AppDelegate.m */; };
-		1AAC92FB1AD1248300EE84E9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC92FA1AD1248300EE84E9 /* ViewController.m */; };
+		1AAC92FB1AD1248300EE84E9 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC92FA1AD1248300EE84E9 /* ViewController.mm */; };
 		1AAC92FE1AD1248300EE84E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AAC92FC1AD1248300EE84E9 /* Main.storyboard */; };
 		1AAC93001AD1248300EE84E9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AAC92FF1AD1248300EE84E9 /* Images.xcassets */; };
 		1AAC93031AD1248300EE84E9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AAC93011AD1248300EE84E9 /* LaunchScreen.xib */; };
 		1AAC930F1AD1248300EE84E9 /* SpotifyVisualizerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC930E1AD1248300EE84E9 /* SpotifyVisualizerTests.m */; };
 		1AAC931A1AD126E300EE84E9 /* CustomSPTCoreAudioController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC93191AD126E300EE84E9 /* CustomSPTCoreAudioController.m */; };
 		1AAC931F1AD12F3F00EE84E9 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC931E1AD12F3F00EE84E9 /* LoginController.m */; };
+		1AE2E0BB1AD139FC00DF8D4B /* BufferManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AE2E0AA1AD139FC00DF8D4B /* BufferManager.cpp */; };
+		1AE2E0BC1AD139FC00DF8D4B /* DCRejectionFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AE2E0AC1AD139FC00DF8D4B /* DCRejectionFilter.cpp */; };
+		1AE2E0BD1AD139FC00DF8D4B /* FFTHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AE2E0AE1AD139FC00DF8D4B /* FFTHelper.cpp */; };
+		1AE2E0BE1AD139FC00DF8D4B /* CADebugMacros.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AE2E0B21AD139FC00DF8D4B /* CADebugMacros.cpp */; };
+		1AE2E0BF1AD139FC00DF8D4B /* CADebugPrintf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AE2E0B41AD139FC00DF8D4B /* CADebugPrintf.cpp */; };
+		1AE2E0C01AD139FC00DF8D4B /* CAStreamBasicDescription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AE2E0B71AD139FC00DF8D4B /* CAStreamBasicDescription.cpp */; };
+		1AE2E0C11AD139FC00DF8D4B /* CAXException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AE2E0B91AD139FC00DF8D4B /* CAXException.cpp */; };
+		1AE2E0C31AD13C4D00DF8D4B /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AE2E0C21AD13C4D00DF8D4B /* Accelerate.framework */; };
 		E9D6D51A6023432810AF8DCE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3680D24A510C3BB558E30539 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -36,7 +44,7 @@
 		1AAC92F61AD1248300EE84E9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1AAC92F71AD1248300EE84E9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1AAC92F91AD1248300EE84E9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1AAC92FA1AD1248300EE84E9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		1AAC92FA1AD1248300EE84E9 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		1AAC92FD1AD1248300EE84E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1AAC92FF1AD1248300EE84E9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1AAC93021AD1248300EE84E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -48,6 +56,23 @@
 		1AAC931C1AD12EB900EE84E9 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		1AAC931D1AD12F3F00EE84E9 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
 		1AAC931E1AD12F3F00EE84E9 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
+		1AE2E0AA1AD139FC00DF8D4B /* BufferManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BufferManager.cpp; sourceTree = "<group>"; };
+		1AE2E0AB1AD139FC00DF8D4B /* BufferManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BufferManager.h; sourceTree = "<group>"; };
+		1AE2E0AC1AD139FC00DF8D4B /* DCRejectionFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DCRejectionFilter.cpp; sourceTree = "<group>"; };
+		1AE2E0AD1AD139FC00DF8D4B /* DCRejectionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRejectionFilter.h; sourceTree = "<group>"; };
+		1AE2E0AE1AD139FC00DF8D4B /* FFTHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FFTHelper.cpp; sourceTree = "<group>"; };
+		1AE2E0AF1AD139FC00DF8D4B /* FFTHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFTHelper.h; sourceTree = "<group>"; };
+		1AE2E0B11AD139FC00DF8D4B /* CABitOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CABitOperations.h; sourceTree = "<group>"; };
+		1AE2E0B21AD139FC00DF8D4B /* CADebugMacros.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CADebugMacros.cpp; sourceTree = "<group>"; };
+		1AE2E0B31AD139FC00DF8D4B /* CADebugMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADebugMacros.h; sourceTree = "<group>"; };
+		1AE2E0B41AD139FC00DF8D4B /* CADebugPrintf.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CADebugPrintf.cpp; sourceTree = "<group>"; };
+		1AE2E0B51AD139FC00DF8D4B /* CADebugPrintf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADebugPrintf.h; sourceTree = "<group>"; };
+		1AE2E0B61AD139FC00DF8D4B /* CAMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAMath.h; sourceTree = "<group>"; };
+		1AE2E0B71AD139FC00DF8D4B /* CAStreamBasicDescription.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAStreamBasicDescription.cpp; sourceTree = "<group>"; };
+		1AE2E0B81AD139FC00DF8D4B /* CAStreamBasicDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAStreamBasicDescription.h; sourceTree = "<group>"; };
+		1AE2E0B91AD139FC00DF8D4B /* CAXException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAXException.cpp; sourceTree = "<group>"; };
+		1AE2E0BA1AD139FC00DF8D4B /* CAXException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAXException.h; sourceTree = "<group>"; };
+		1AE2E0C21AD13C4D00DF8D4B /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		3136440C06135D67AD21DE28 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		3680D24A510C3BB558E30539 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		78B7EE54972F8919B44B8899 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -58,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AE2E0C31AD13C4D00DF8D4B /* Accelerate.framework in Frameworks */,
 				E9D6D51A6023432810AF8DCE /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -75,6 +101,7 @@
 		0CCF6A02BF1703B7E766A642 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1AE2E0C21AD13C4D00DF8D4B /* Accelerate.framework */,
 				3680D24A510C3BB558E30539 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -103,11 +130,12 @@
 		1AAC92F11AD1248300EE84E9 /* SpotifyVisualizer */ = {
 			isa = PBXGroup;
 			children = (
+				1AE2E0A91AD139FC00DF8D4B /* CoreAudio */,
 				1AAC931C1AD12EB900EE84E9 /* Config.h */,
 				1AAC92F61AD1248300EE84E9 /* AppDelegate.h */,
 				1AAC92F71AD1248300EE84E9 /* AppDelegate.m */,
 				1AAC92F91AD1248300EE84E9 /* ViewController.h */,
-				1AAC92FA1AD1248300EE84E9 /* ViewController.m */,
+				1AAC92FA1AD1248300EE84E9 /* ViewController.mm */,
 				1AAC931D1AD12F3F00EE84E9 /* LoginController.h */,
 				1AAC931E1AD12F3F00EE84E9 /* LoginController.m */,
 				1AAC92FC1AD1248300EE84E9 /* Main.storyboard */,
@@ -144,6 +172,37 @@
 				1AAC930D1AD1248300EE84E9 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1AE2E0A91AD139FC00DF8D4B /* CoreAudio */ = {
+			isa = PBXGroup;
+			children = (
+				1AE2E0AA1AD139FC00DF8D4B /* BufferManager.cpp */,
+				1AE2E0AB1AD139FC00DF8D4B /* BufferManager.h */,
+				1AE2E0AC1AD139FC00DF8D4B /* DCRejectionFilter.cpp */,
+				1AE2E0AD1AD139FC00DF8D4B /* DCRejectionFilter.h */,
+				1AE2E0AE1AD139FC00DF8D4B /* FFTHelper.cpp */,
+				1AE2E0AF1AD139FC00DF8D4B /* FFTHelper.h */,
+				1AE2E0B01AD139FC00DF8D4B /* PublicUtility */,
+			);
+			path = CoreAudio;
+			sourceTree = "<group>";
+		};
+		1AE2E0B01AD139FC00DF8D4B /* PublicUtility */ = {
+			isa = PBXGroup;
+			children = (
+				1AE2E0B11AD139FC00DF8D4B /* CABitOperations.h */,
+				1AE2E0B21AD139FC00DF8D4B /* CADebugMacros.cpp */,
+				1AE2E0B31AD139FC00DF8D4B /* CADebugMacros.h */,
+				1AE2E0B41AD139FC00DF8D4B /* CADebugPrintf.cpp */,
+				1AE2E0B51AD139FC00DF8D4B /* CADebugPrintf.h */,
+				1AE2E0B61AD139FC00DF8D4B /* CAMath.h */,
+				1AE2E0B71AD139FC00DF8D4B /* CAStreamBasicDescription.cpp */,
+				1AE2E0B81AD139FC00DF8D4B /* CAStreamBasicDescription.h */,
+				1AE2E0B91AD139FC00DF8D4B /* CAXException.cpp */,
+				1AE2E0BA1AD139FC00DF8D4B /* CAXException.h */,
+			);
+			path = PublicUtility;
 			sourceTree = "<group>";
 		};
 		B5A1334DA60DA6C0C6C3B6B5 /* Pods */ = {
@@ -290,10 +349,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AE2E0C11AD139FC00DF8D4B /* CAXException.cpp in Sources */,
 				1AAC931F1AD12F3F00EE84E9 /* LoginController.m in Sources */,
-				1AAC92FB1AD1248300EE84E9 /* ViewController.m in Sources */,
+				1AE2E0BC1AD139FC00DF8D4B /* DCRejectionFilter.cpp in Sources */,
+				1AAC92FB1AD1248300EE84E9 /* ViewController.mm in Sources */,
 				1AAC92F81AD1248300EE84E9 /* AppDelegate.m in Sources */,
+				1AE2E0C01AD139FC00DF8D4B /* CAStreamBasicDescription.cpp in Sources */,
+				1AE2E0BB1AD139FC00DF8D4B /* BufferManager.cpp in Sources */,
 				1AAC931A1AD126E300EE84E9 /* CustomSPTCoreAudioController.m in Sources */,
+				1AE2E0BF1AD139FC00DF8D4B /* CADebugPrintf.cpp in Sources */,
+				1AE2E0BD1AD139FC00DF8D4B /* FFTHelper.cpp in Sources */,
+				1AE2E0BE1AD139FC00DF8D4B /* CADebugMacros.cpp in Sources */,
 				1AAC92F51AD1248300EE84E9 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
