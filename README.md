@@ -5,3 +5,7 @@ SpotifyVisualizer Example for ios
 ##dependencies
 EZaudio
 Spotify iOS SDK
+
+
+##TO DO
+bar chart like VU meter
