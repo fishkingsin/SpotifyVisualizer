@@ -20,6 +20,7 @@
 #import "CustomSPTCoreAudioController.h"
 #import "EZAudio.h"
 #import "BufferManager.h"
+#import "GKBarGraph.h"
 #ifndef CLAMP
 #define CLAMP(min,x,max) (x < min ? min : (x > max ? max : x))
 #endif
@@ -44,6 +45,7 @@ typedef enum aurioTouchDisplayMode {
 @property (weak, nonatomic) IBOutlet EZAudioPlotGL *audioPlot;
 
 @property (nonatomic, strong) SPTAudioStreamingController *player;
+@property (weak, nonatomic) IBOutlet GKBarGraph *graphView;
 
 @end
 
@@ -245,7 +247,7 @@ typedef enum aurioTouchDisplayMode {
 -(void)controller:(CustomSPTCoreAudioController *)controller shouldFillAudioBufferList:(AudioBufferList*)audioBufferList withNumberOfFrames:(UInt32)frames
 {
     float *dataPoints =  (Float32 *)audioBufferList->mBuffers[0].mData;
-    if(_bufferManager != NULL)
+    if(_bufferManager != NULL && dataPoints!=NULL)
     {
         _bufferManager->CopyAudioDataToFFTInputBuffer(dataPoints, frames);
         //    UInt32 bufferSize = audioBufferList->mBuffers[0].mDataByteSize/sizeof(float);
